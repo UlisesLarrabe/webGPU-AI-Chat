@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 
 type Message = {
   role: string;
@@ -13,6 +13,14 @@ export const SendMessage = ({
   messages,
   containerRef,
   setStreamReply,
+}: {
+  engine: any;
+  isLoading: boolean;
+  setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
+  setMessages: React.Dispatch<React.SetStateAction<Message[]>>;
+  messages: Message[];
+  containerRef: React.RefObject<HTMLElement>;
+  setStreamReply: React.Dispatch<React.SetStateAction<string>>;
 }) => {
   const scrollToBottom = () => {
     const container = containerRef.current;
