@@ -1,3 +1,4 @@
+import { MLCEngine } from "@mlc-ai/web-llm";
 import React, { useEffect } from "react";
 
 type Message = {
@@ -14,12 +15,12 @@ export const SendMessage = ({
   containerRef,
   setStreamReply,
 }: {
-  engine: any;
+  engine: MLCEngine;
   isLoading: boolean;
   setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
   setMessages: React.Dispatch<React.SetStateAction<Message[]>>;
   messages: Message[];
-  containerRef: React.RefObject<HTMLElement>;
+  containerRef: React.RefObject<HTMLElement | null>;
   setStreamReply: React.Dispatch<React.SetStateAction<string>>;
 }) => {
   const scrollToBottom = () => {

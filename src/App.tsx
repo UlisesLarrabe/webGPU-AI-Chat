@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 import "./App.css";
-import { CreateMLCEngine } from "@mlc-ai/web-llm";
+import { CreateMLCEngine, MLCEngine } from "@mlc-ai/web-llm";
 import MessageContainer from "./components/MessageContainer";
 import { SendMessage } from "./components/SendMessage";
 
@@ -11,7 +11,7 @@ type Message = {
 
 function App() {
   const [engineStatus, setEngineStatus] = useState("");
-  const [engine, setEngine] = useState(null);
+  const [engine, setEngine] = useState<MLCEngine | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [streamReply, setStreamReply] = useState("");
   const [messages, setMessages] = useState<Message[]>([
@@ -38,7 +38,7 @@ function App() {
     });
   }, []);
 
-  const containerRef = useRef(null);
+  const containerRef = useRef<HTMLElement | null>(null);
 
   return (
     <>
