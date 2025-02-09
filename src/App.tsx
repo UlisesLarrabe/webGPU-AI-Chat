@@ -21,7 +21,7 @@ function App() {
         "Hola! Soy un modelo de lenguaje conversacional, puedes escribirme lo que quieras y te respondere lo mejor que pueda.",
     },
   ]);
-  const SELECTED_MODEL = "SmolLM2-360M-Instruct-q0f16-MLC";
+  const SELECTED_MODEL = "Llama-3.2-3B-Instruct-q4f16_1-MLC";
   const loadEngine = async () => {
     const engine = await CreateMLCEngine(SELECTED_MODEL, {
       initProgressCallback: (info) => {
