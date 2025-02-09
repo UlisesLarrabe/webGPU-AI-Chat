@@ -15,7 +15,7 @@ export const SendMessage = ({
   containerRef,
   setStreamReply,
 }: {
-  engine: MLCEngine;
+  engine: MLCEngine | null;
   isLoading: boolean;
   setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
   setMessages: React.Dispatch<React.SetStateAction<Message[]>>;
