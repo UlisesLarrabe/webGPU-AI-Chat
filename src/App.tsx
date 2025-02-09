@@ -4,10 +4,9 @@ import { CreateMLCEngine, MLCEngine } from "@mlc-ai/web-llm";
 import MessageContainer from "./components/MessageContainer";
 import { SendMessage } from "./components/SendMessage";
 
-type Message = {
-  role: string;
-  content: string;
-};
+type Message =
+  | { role: "user" | "assistant" | "system"; content: string }
+  | { role: "tool"; content: string; tool_call_id: string };
 
 function App() {
   const [engineStatus, setEngineStatus] = useState("");

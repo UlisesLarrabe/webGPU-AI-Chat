@@ -1,10 +1,9 @@
 import { MLCEngine } from "@mlc-ai/web-llm";
 import React, { useEffect } from "react";
 
-type Message = {
-  role: string;
-  content: string;
-};
+type Message =
+  | { role: "user" | "assistant" | "system"; content: string }
+  | { role: "tool"; content: string; tool_call_id: string };
 
 export const SendMessage = ({
   engine,
@@ -48,7 +47,7 @@ export const SendMessage = ({
       return alert("El mensaje no puede estar vacío");
     }
 
-    const userMessage = {
+    const userMessage: Message = {
       role: "user",
       content: input.value,
     };
@@ -58,10 +57,14 @@ export const SendMessage = ({
       input.value = "";
       setIsLoading(true);
 
-      const updatedMessages = messages;
+      if (!engine) {
+        return;
+      }
+
+      const updatedMessages = [...messages, userMessage];
 
       const chunks = await engine.chat.completions.create({
-        messages: [...updatedMessages, userMessage],
+        messages: updatedMessages,
         stream: true,
       });
 
@@ -69,19 +72,19 @@ export const SendMessage = ({
 
       for await (const chunk of chunks) {
         const choice = chunk.choices[0];
-        reply += choice.delta.content ?? "";
+        reply += choice.delta?.content ?? "";
         setStreamReply(reply);
         scrollToBottom();
       }
 
       setStreamReply("");
 
-      const assistantMessage = {
+      const assistantMessage: Message = {
         role: "assistant",
         content: reply,
       };
 
-      setMessages([...updatedMessages, userMessage, assistantMessage]);
+      setMessages([...updatedMessages, assistantMessage]);
       setIsLoading(false);
     } catch (error) {
       console.error(error);
