@@ -88,11 +88,11 @@ export const SendMessage = ({
   };
 
   return (
-    <form onSubmit={sendMessage} className="flex gap-4">
+    <form onSubmit={sendMessage} className="w-1/3 flex gap-4">
       <input
         type="text"
         placeholder="Escribe aqui..."
-        className="p-2 bg-white rounded-lg"
+        className="w-full p-2 bg-white rounded-lg"
       />
       <button
         disabled={isLoading}
