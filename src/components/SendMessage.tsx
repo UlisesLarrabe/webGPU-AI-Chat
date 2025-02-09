@@ -39,9 +39,10 @@ export const SendMessage = ({
     setMessages([...newMessages]);
   };
 
-  const sendMessage = async (e) => {
+  const sendMessage = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const input = e.target[0];
+    const form = e.currentTarget;
+    const input = form.elements.namedItem("message") as HTMLInputElement;
 
     if (input.value.trim() === "") {
       return alert("El mensaje no puede estar vacío");
@@ -94,6 +95,7 @@ export const SendMessage = ({
         type="text"
         placeholder="Escribe aqui..."
         className="w-full p-2 bg-white rounded-lg"
+        name="message"
       />
       <button
         disabled={isLoading}
