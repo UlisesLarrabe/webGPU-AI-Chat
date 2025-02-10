@@ -93,7 +93,7 @@ export const SendMessage = ({
   };
 
   return (
-    <form onSubmit={sendMessage} className="w-1/3 flex gap-4">
+    <form onSubmit={sendMessage} className="hidden w-1/3 md:flex gap-4">
       <input
         type="text"
         placeholder="Escribe aqui..."

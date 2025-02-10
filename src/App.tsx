@@ -42,8 +42,16 @@ function App() {
   return (
     <>
       <main className="w-full min-h-dvh bg-gray-400 flex flex-col justify-center items-center gap-4">
+        <h1 className="md:hidden text-xl font-bold text-center text-white p-4 bg-red-500">
+          Esta pagina no es compatible con dispositivos moviles
+        </h1>
+        <span className="text-2xl font-bold text-white">Chatbot</span>
+        <span className="text-sm text-white">
+          {" "}
+          - Modelo de lenguaje conversacional
+        </span>
         <section
-          className="w-1/3 h-96 bg-white rounded-lg shadow-lg p-4 overflow-auto scroll-smooth"
+          className="hidden md:block w-1/3 h-96 bg-white rounded-lg shadow-lg p-4 overflow-auto scroll-smooth"
           ref={containerRef}
         >
           <ul className="flex flex-col gap-4">
@@ -66,7 +74,9 @@ function App() {
           containerRef={containerRef}
           isLoading={isLoading}
         />
-        <small className="max-w-2xs text-center">{engineStatus}</small>
+        <small className="hidden md:block max-w-2xs text-center">
+          {engineStatus}
+        </small>
       </main>
     </>
   );
