@@ -11,9 +11,9 @@ Un chat impulsado por inteligencia artificial que aprovecha la potencia de **Web
 
 ## 🛠️ Tecnologías Utilizadas
 
-- [React](https://reactjs.org/)
-- [Vite](https://vitejs.dev/)
-- [WebGPU](https://gpuweb.github.io/gpuweb/)
+- React
+- Vite
+- WebGPU
 
 ## 📦 Instalación
 
