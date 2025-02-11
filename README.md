@@ -1,50 +1,26 @@
-# React + TypeScript + Vite
+# WebGPU AI Chat
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Un chat impulsado por inteligencia artificial que aprovecha la potencia de **WebGPU** para un rendimiento optimizado. Construido con **React** y **Vite** para una experiencia de usuario rápida y moderna.
 
-Currently, two official plugins are available:
+## 🚀 Características
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- ⚡ **Rendimiento Acelerado:** Renderizado eficiente mediante WebGPU.
+- 🤖 **Chat con IA:** Interacción fluida con modelos de IA.
+- 🎯 **Interfaz Moderna:** Desarrollada con React para una UI responsiva.
+- 🚀 **Build Rápido:** Gracias a Vite, el desarrollo es ultrarrápido.
 
-## Expanding the ESLint configuration
+## 🛠️ Tecnologías Utilizadas
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- [React](https://reactjs.org/)
+- [Vite](https://vitejs.dev/)
+- [WebGPU](https://gpuweb.github.io/gpuweb/)
 
-- Configure the top-level `parserOptions` property like this:
+## 📦 Instalación
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+1. **Clona el repositorio:**
+   ```bash
+   git clone https://github.com/UlisesLarrabe/chatGPT-local.git
+   cd chatGPT-local
+   pnpm install
+   pnpm run dev
+   ```
